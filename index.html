@@ -22,7 +22,10 @@
         <div class="col-12 d-flex justify-content-center min-vh-100 align-items-center">
             <div class="card col-11 col-md-4 col-lg-5" id="weatherDashboard">
                 <div class="card-body">
+                    <!-- Creates the container for the primary display for the app -->
                     <div class="container text-center">
+
+                        <!-- Displays the location that data is being rocrded at -->
                         <div id="topLocation" class="row justify-content-md-center">
                             <div  class="col-12" style="color:rgb(0, 38, 255)">
                                 <h1>
@@ -35,6 +38,8 @@
                                 </h1>
                             </div>
                         </div>
+
+                        <!-- The row for displaying the text "Current Weather" -->
                         <div class="row justify-content-md-center pt-5 pb-5">
                         
                             <div class="col col-12">
@@ -42,12 +47,18 @@
                             </div>
                         
                         </div>
+
+                        <!-- Displays the Weahter Icon that changes depending on the given weather code -->
                         <div class="row justify-content-center">
                             <i id="weatherIcon" style="font-size:xx-large"></i>
                         </div>
+
+                        <!-- Displays the actually weather such as clear sky, rainy, etc. -->
                         <div class="row justify-content-center pt-3 pb-3">
                             <i id="weatherDescriptor" style="font-size: x-large;"></i>
                         </div>
+
+                        <!-- Displays the current Tempurature and the Humidity -->
                         <div class="row justify-content-center pt-3 pb-3">
                             <div class="col col-4" style="font-size: x-large;">
                                 <svg xmlns="http://www.w3.org/2000/svg" style="color:orange" width="16" height="16" fill="currentColor" class="bi bi-thermometer-half" viewBox="0 0 16 16">
@@ -86,12 +97,15 @@
             const humidDisplay = document.querySelector("#humidValue");
             const tempDisplay = document.querySelector("#tempValue");
 
+            // These variables store the respective data needed to dynamically change the tempurature and the humidity
             humidDisplay.textContent = data.current.temperature_2m;
             tempDisplay.textContent = data.current.relative_humidity_2m;
 
             // This variable stores what the current weather code is.
-            //const intWeatherCodes = data.current.precipitation;
-            const intWeatherCodes = 0;
+            const intWeatherCodes = data.current.precipitation;
+            
+            // This was used for debugging and testing purposes
+            //const intWeatherCodes = 99;
 
 
             // This if statements will check what weather code is currently being stored in intWeatherCodes then update the displayed text and the icon for the current weather.
